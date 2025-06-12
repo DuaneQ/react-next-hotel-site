@@ -8,15 +8,19 @@ import { User } from "@/models/user";
 import { FaSignOutAlt } from "react-icons/fa";
 import { BsJournalBookmarkFill } from "react-icons/bs";
 import LoadingSpinner from "../../loading";
-import Image from 'next/image';
-import { signOut } from 'next-auth/react';
+import Image from "next/image";
+import { signOut } from "next-auth/react";
 import { GiMoneyStack } from "react-icons/gi";
 import Table from "@/app/components/Table/Table";
 import Chart from "@/app/components/Chart/Chart";
 
-const UserDetails = (props: { params: Promise<{ id: string }> }) => {
-  const { id: userId } = use(props.params); // Unwrap the params Promise
-  const [currentNav, setCurrentNav] = useState<"bookings" | "amount" | "ratings">("bookings");
+const UserDetails = (props: { params: { id: string } }) => {
+  const {
+    params: { id: userId },
+  } = props;
+  const [currentNav, setCurrentNav] = useState<
+    "bookings" | "amount" | "ratings"
+  >("bookings");
   const [roomId, setRoomId] = useState<string | null>(null);
 
   const fetchUserBooking = async () => getUserBookings(userId);
@@ -134,10 +138,7 @@ const UserDetails = (props: { params: Promise<{ id: string }> }) => {
 
           {currentNav === "bookings" ? (
             userBookings && (
-              <Table
-                bookingDetails={userBookings}
-                setRoomId={setRoomId}
-              />
+              <Table bookingDetails={userBookings} setRoomId={setRoomId} />
             )
           ) : (
             <></>
