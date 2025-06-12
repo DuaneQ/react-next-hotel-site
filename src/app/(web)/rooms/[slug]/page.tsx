@@ -10,14 +10,15 @@ import { MdOutlineCleaningServices } from "react-icons/md";
 import { LiaFireExtinguisherSolid } from "react-icons/lia";
 import { AiOutlineMedicineBox } from "react-icons/ai";
 import { GiSmokeBomb } from "react-icons/gi";
-import RoomReview from "@/app/components/RoomReview/RoomReview";
 import BookRoomCta from "@/app/components/BookRoomCta/BookRoomCta";
 import toast from 'react-hot-toast';
 import axios from "axios";
 import { getStripe } from '@/libs/stripe';
 
-const RoomDetails = (props: { params: Promise<{ slug: string }> }) => {
-  const { slug } = use(props.params); // Unwrap the params Promise
+const RoomDetails = (props: { params: { slug: string } }) => {
+  const {
+    params: { slug },
+  } = props;
   const [checkinDate, setCheckinDate] = useState<Date | null>(null);
   const [checkoutDate, setCheckoutDate] = useState<Date | null>(null);
   const [adults, setAdults] = useState(1);
