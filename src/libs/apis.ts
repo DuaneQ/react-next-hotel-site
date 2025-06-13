@@ -25,7 +25,7 @@ export async function getRooms() {
 }
 
 export async function getRoom(slug: string) {
-  const result = await sanityClient.fetch<Room[]>(
+  const result = await sanityClient.fetch<Room>(
     queries.getRoom,
     { slug },
     { cache: "no-cache" }
