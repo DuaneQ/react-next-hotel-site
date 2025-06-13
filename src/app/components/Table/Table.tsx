@@ -50,11 +50,9 @@ const Table: FC<Props> = ({ bookingDetails, setRoomId }) => {
                 <button
                   onClick={() => {
                     setRoomId(booking.hotelRoom._id);
-                    toggleRatingModal()
                   }}
                   className='font-medium text-blue-600 hover:underline'
                 >
-                  Rate
                 </button>
               </td>
             </tr>
