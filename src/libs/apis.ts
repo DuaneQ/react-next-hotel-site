@@ -1,5 +1,5 @@
 import axios from "axios";
-import sanityClient from "./sanity";
+import { sanityClient } from "./sanity";
 import * as queries from "./sanityQueries";
 import { CreateBookingDto, Room } from "@/models/room";
 import { Booking } from "@/models/booking";
