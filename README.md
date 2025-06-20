@@ -149,3 +149,17 @@ A full-stack hotel management and booking platform built with **Next.js 14 (App 
 Feel free to reach out if you have questions about the code or want to discuss collaboration!
 
 ---
+
+```mermaid
+flowchart TD
+  User[User]
+  NextApp[NextJS_App]
+  Sanity[Sanity_CMS]
+  Stripe[Stripe_API]
+  GitHubPages[GitHub_Pages]
+
+  User -->|Visits| GitHubPages
+  GitHubPages -->|Serves static site| NextApp
+  NextApp -->|Fetches content| Sanity
+  NextApp -->|Handles payments| Stripe
+```
